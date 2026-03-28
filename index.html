@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Urdu English Typing Practice</title>
+<style>
+body { font-family: Arial; text-align: center; padding: 20px; }
+textarea { width: 80%; height: 100px; }
+</style>
+</head>
+<body>
+
+<h2>Typing Practice</h2>
+
+<p id="text">The quick brown fox jumps over the lazy dog.</p>
+
+<textarea id="input" placeholder="Start typing here..."></textarea>
+<br><br>
+
+<button onclick="check()">Check Result</button>
+
+<p id="result"></p>
+
+<script>
+function check() {
+  let text = document.getElementById("text").innerText;
+  let input = document.getElementById("input").value;
+
+  let correct = 0;
+  for (let i = 0; i < text.length; i++) {
+    if (text[i] === input[i]) {
+      correct++;
+    }
+  }
+
+  let accuracy = (correct / text.length) * 100;
+
+  document.getElementById("result").innerText =
+    "Accuracy: " + accuracy.toFixed(2) + "%";
+}
+</script>
+
+</body>
+</html>
